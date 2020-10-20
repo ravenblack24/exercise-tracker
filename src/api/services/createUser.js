@@ -1,6 +1,7 @@
+const lookup = require('./lookupUser');
+
 const createUser = (req, res) => {
     const user = req.body.username;
-    console.log(user);
 
     if(!user) {
        return res.json({"error" : "enter a username"});
