@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const service = require('./src/api/services/index');
+const createUser = require('./src/api/controllers/createUser');
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 })
 
 app.post("/api/exercise/new-user", (req, res) => {
-    service.createUser(req, res);
+    createUser.createUser(req, res);
 })
 
 app.post("/api/exercise/add", (req, res) => {

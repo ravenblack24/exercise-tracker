@@ -1,3 +1,4 @@
-const {createUser} = require('./createUser');
+const {createAndSaveUser} = require('./createAndSaveUser');
+const {findByUsername} = require('./findByUsername');
 
-module.exports = {createUser}
+module.exports = {createAndSaveUser, findByUsername}
