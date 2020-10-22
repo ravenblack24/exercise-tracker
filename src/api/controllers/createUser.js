@@ -1,4 +1,4 @@
-const {createAndSaveUser, findByUsername} = require('../services/index');
+const {createAndSaveUser, findByUsername, getAllUsers} = require('../services/index');
 
 const createUser = async (req, res) => {
     const user = req.body.username;
@@ -22,4 +22,16 @@ const createUser = async (req, res) => {
     }
 } 
 
-module.exports = {createUser}
+const allUsers = async (res) => {
+    console.log("hi");
+    try {
+        const users = await getAllUsers();
+        console.log(users);
+        return res.json(users);
+
+    } catch (err) {
+        return res.json({"error": "unable to get users"});
+    }
+}
+
+module.exports = {createUser, allUsers}
