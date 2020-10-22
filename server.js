@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const users = require('./src/api/controllers/createUser');
+const users = require('./src/api/controllers/users');
+const exercise = require('./src/api/controllers/exercise');
 
 const app = express();
 
