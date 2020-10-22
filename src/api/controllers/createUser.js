@@ -23,7 +23,6 @@ const createUser = async (req, res) => {
 } 
 
 const allUsers = async (res) => {
-    console.log("hi");
     try {
         const users = await getAllUsers();
         console.log(users);
