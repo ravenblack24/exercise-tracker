@@ -22,7 +22,7 @@ app.get("/api/exercise/users", (req, res) => {
 })
 
 app.post("/api/exercise/add", (req, res) => {
-    
+    exercise.addExercise(req, res);
 })
 
 const port = process.env.PORT || 3000;

@@ -1,4 +1,4 @@
-const {createAndSaveUser, findByUsername, getAllUsers} = require('../services/index');
+const {createAndSaveUser, findByUsername, getAllUsers} = require('../services/index-user');
 
 const createUser = async (req, res) => {
     const user = req.body.username;
