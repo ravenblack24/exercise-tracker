@@ -22,9 +22,9 @@ const addExercise = async (req, res) => {
         const newExercise = await createAndSaveExercise({
             "userId": userId,
             "log" : { 
-                "description": description,
-                "duration" : duration,
-                "date": date }
+                description,
+                duration,
+                date }
         });
         
         return res.json({
