@@ -2,7 +2,7 @@
 var User = require('../models/user');
 
 /**
- * Find a user in the database
+ * Get all users in the database and return without log attribute
  * 
  * @returns {Promise<String|Object>} 
  * 
@@ -11,7 +11,7 @@ var User = require('../models/user');
 const getAllUsers = async () => {
 
     try {
-        const users = await User.find({});
+        const users = await User.find({}).select({log: 0});
         return users
     } catch(err) {
         throw new Error("Error retrieving all user records");

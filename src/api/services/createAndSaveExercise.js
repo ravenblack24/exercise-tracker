@@ -1,5 +1,5 @@
 // Create model
-var Exercise = require('../models/exercise')
+var User = require('../models/user')
 
 /**
  * Save user to the database
@@ -14,13 +14,15 @@ var Exercise = require('../models/exercise')
 const createAndSaveExercise = async (exercise) => {
 
     try {
-        const newExercise = await Exercise.findOneAndUpdate(
-            { userId: exercise.userId},
+        console.log(exercise);
+        var newExercise = await User.findOneAndUpdate(
+            { _id: exercise.userId},
             { $push: { 
                 log: exercise.log}},
             {new:true}
         );
         console.log("saved");
+        console.log(newExercise);
         return newExercise;
     } catch (err) {
         throw new Error("Error saving new exercise");

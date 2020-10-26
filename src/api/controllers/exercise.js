@@ -21,18 +21,19 @@ const addExercise = async (req, res) => {
 
         const newExercise = await createAndSaveExercise({
             "userId": userId,
-            "log" : [{ 
+            "log" : { 
                 "description": description,
                 "duration" : duration,
-                "date": date }]
+                "date": date }
         });
         console.log("saved");
         
         return res.json({
             "_id" : newExercise._id,
             "username": newExercise.username,
-            "count": 0,
-            "log": newExercise.log 
+            "date": newExercise.log[newExercise.log.length-1].date,
+            "duration": newExercise.log[newExercise.log.length-1].duration,
+            "description": newExercise.log[newExercise.log.length-1].description
         });
 
     } catch(err) {

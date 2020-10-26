@@ -25,7 +25,7 @@ const createUser = async (req, res) => {
 const allUsers = async (res) => {
     try {
         const users = await getAllUsers();
-        console.log(users);
+        // console.log(users);
         return res.json(users);
 
     } catch (err) {
