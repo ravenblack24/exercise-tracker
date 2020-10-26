@@ -26,7 +26,6 @@ const addExercise = async (req, res) => {
                 "duration" : duration,
                 "date": date }
         });
-        console.log("saved");
         
         return res.json({
             "_id" : newExercise._id,
@@ -37,7 +36,7 @@ const addExercise = async (req, res) => {
         });
 
     } catch(err) {
-        return res.json({"error": "unable to save"});
+        return res.json({"error": "unable to save exercise"});
     }
 } 
 
