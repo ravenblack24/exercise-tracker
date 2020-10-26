@@ -5,6 +5,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
 const userSchema = new mongoose.Schema({
     username: {type:String, required: true},
     log: [{
+        _id: false,
         description: {type:String, required: true},
         duration: {type:Number, required: true},
         date: {type: Date, required: false}

@@ -25,6 +25,10 @@ app.post("/api/exercise/add", (req, res) => {
     exercise.addExercise(req, res);
 })
 
+app.get("/api/exercise/log?:userId", (req, res) => {
+    exercise.getLog(req, res);
+})
+
 const port = process.env.PORT || 3000;
 
 const listener = app.listen(port, () => {

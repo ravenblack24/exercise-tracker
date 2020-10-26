@@ -1,3 +1,4 @@
 const {createAndSaveExercise} = require('./createAndSaveExercise');
+const {getUserLog} = require('./getUserLog');
 
-module.exports = {createAndSaveExercise}
+module.exports = {createAndSaveExercise, getUserLog}
