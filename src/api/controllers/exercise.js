@@ -42,6 +42,11 @@ const addExercise = async (req, res) => {
 
 const getLog = async (req, res) => {
     const userId = req.query.userId;
+    const from = req.query.from;
+    const to = req.query.to;
+    const limit = req.query.limit;
+
+    console.log(from, to, limit);
 
     if(!userId) {
         return res.json({"error" : "enter a user id"});

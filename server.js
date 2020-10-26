@@ -25,7 +25,7 @@ app.post("/api/exercise/add", (req, res) => {
     exercise.addExercise(req, res);
 })
 
-app.get("/api/exercise/log?:userId", (req, res) => {
+app.get("/api/exercise/log", (req, res) => {
     exercise.getLog(req, res);
 })
 
