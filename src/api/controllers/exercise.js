@@ -1,5 +1,6 @@
 const moment = require('moment');
 const {findById} = require('../services/index-user');
+const {logFilter} = require('../helper/logFilter');
 const {createAndSaveExercise, getUserLog} = require('../services/index-exercise');
 
 const addExercise = async (req, res) => {
@@ -42,24 +43,30 @@ const addExercise = async (req, res) => {
 
 const getLog = async (req, res) => {
     const userId = req.query.userId;
-    const from = req.query.from;
-    const to = req.query.to;
-    const limit = req.query.limit;
-
-    console.log(from, to, limit);
+    let from = req.query.from;
+    let to = req.query.to;
+    let limit = req.query.limit;
 
     if(!userId) {
         return res.json({"error" : "enter a user id"});
     }
 
+    // from & to needed for date range filter
+    if(!from && !to) {
+        from = undefined;
+        to = undefined;
+    }
+
     try {
-        const userLog = await getUserLog({"_id": userId});
-        return res.json({
-            "_id" : userLog._id,
-            "username": userLog.username,
-            "count" : userLog.log.length,
-            "log" : userLog.log
-        });
+        const userLog = await findById(userId);
+
+        let response = {};
+
+        response.id = userLog._id;
+        response.username = userLog.username,
+        response.count = logFilter(userLog.log, from, to, limit).count,
+        response.log = logFilter(userLog.log, from, to, limit).log;
+        return res.json(response);
 
     } catch(err) {
         return res.json({"error": "unable to get exercise record"});
