@@ -31,7 +31,7 @@ const addExercise = async (req, res) => {
         return res.json({
             "_id" : newExercise._id,
             "username": newExercise.username,
-            "date": newExercise.log[newExercise.log.length-1].date,
+            "date": newExercise.log[newExercise.log.length-1].date.toDateString(),
             "duration": newExercise.log[newExercise.log.length-1].duration,
             "description": newExercise.log[newExercise.log.length-1].description
         });
