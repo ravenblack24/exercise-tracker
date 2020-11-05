@@ -1,7 +1,7 @@
 const moment = require('moment');
 const {findById} = require('../services/index-user');
 const {logFilter} = require('../helper/logFilter');
-const {createAndSaveExercise, getUserLog} = require('../services/index-exercise');
+const {createAndSaveExercise} = require('../services/index-exercise');
 
 const addExercise = async (req, res) => {
     const userId = req.body.userId;
